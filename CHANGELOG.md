@@ -5,3 +5,7 @@
 ## 0.0.2
 
 * Improved README file
+
+## 0.9.0
+
+* Improved README file
