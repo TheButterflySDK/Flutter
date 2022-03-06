@@ -1,7 +1,8 @@
 # The Butterfly SDK for Flutter
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://github.com/TheButterflySDK/Android/blob/main/LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Flutter-blue.svg)](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
-
+[![Platform-Flutter](https://img.shields.io/badge/Platform-Flutter-blue.svg)](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
+[![Platform-iOS](https://img.shields.io/badge/Platform-iOS-white.svg)](https://github.com/TheButterflySDK/iOS)
+[![Platform-Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/TheButterflySDK/Android)
 
 The Butterfly SDK help your app to take an active part in the fight against domestic violent.
 
