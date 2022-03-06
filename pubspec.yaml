@@ -1,6 +1,6 @@
 name: butterfly_sdk_flutter_plugin
 description: A plugin for The Butterfly SDK (iOS + Android) that allows you use it in yout Flutter mobile app.
-version: 0.9.0
+version: 0.9.3
 homepage: https://github.com/TheButterflySDK/Flutter
 
 environment:

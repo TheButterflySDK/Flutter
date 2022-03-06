@@ -11,7 +11,7 @@ The Butterfly SDK help your app to take an active part in the fight against dome
 ### Install via pub.dev
 
 ```
-  butterfly_sdk_flutter_plugin: ^0.9.0
+  butterfly_sdk_flutter_plugin: ^0.9.3
 ```
 
 ## Usage

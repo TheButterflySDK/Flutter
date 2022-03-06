@@ -9,3 +9,7 @@
 ## 0.9.0
 
 * Improved README file
+
+## 0.9.3
+
+* Fixed an issue with Android
