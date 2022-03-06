@@ -1,6 +1,6 @@
 # The Butterfly SDK for Flutter
-[![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://github.com/TheButterflySDK/Android/blob/main/LICENSE)
-[![Platform-Flutter](https://img.shields.io/badge/Platform-Flutter-blue.svg)](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
+[![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://github.com/TheButterflySDK/Flutter/blob/main/LICENSE)
+[![Platform-Flutter](https://img.shields.io/badge/Platform-Flutter-blue.svg)](https://github.com/TheButterflySDK/Flutter)
 [![Platform-iOS](https://img.shields.io/badge/Platform-iOS-white.svg)](https://github.com/TheButterflySDK/iOS)
 [![Platform-Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/TheButterflySDK/Android)
 
