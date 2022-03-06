@@ -8,7 +8,7 @@ The Butterfly SDK help your app to take an active part in the fight against dome
 ## Installation
 ### 🔌 & ▶️
 
-### Install via pub.dev
+### Install via [pub.dev](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
 
 ```
   butterfly_sdk_flutter_plugin: ^0.0.2
