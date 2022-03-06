@@ -4,7 +4,7 @@
 [![Platform-iOS](https://img.shields.io/badge/Platform-iOS-white.svg)](https://github.com/TheButterflySDK/iOS)
 [![Platform-Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/TheButterflySDK/Android)
 
-The Butterfly SDK help your app to take an active part in the fight against domestic violent.
+[The Butterfly SDK](https://github.com/TheButterflySDK/About/blob/main/README.md) helps your app to take an active part in the fight against domestic violent.
 
 ## Installation
 ### 🔌 & ▶️
