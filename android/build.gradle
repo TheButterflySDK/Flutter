@@ -34,12 +34,12 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 19
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.github.TheButterflySDK:Android:0.9.6"
+    implementation "com.github.TheButterflySDK:Android:0.9.7"
     implementation "androidx.annotation:annotation:1.3.0"
 }

@@ -13,3 +13,7 @@
 ## 0.9.3
 
 * Fixed an issue with Android
+
+## 0.9.4
+
+* Fixed CORS issue

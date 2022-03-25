@@ -15,7 +15,7 @@ A new flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-#  pod 'TheButterflySDK', '0.9.3'
+#  pod 'TheButterflySDK', '0.9.4'
   s.platform = :ios, '9.0'
   s.resource_bundles = {
      'TheButterflySDK' => ['Assets/resources/*.lproj/*.strings']
