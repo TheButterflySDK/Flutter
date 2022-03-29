@@ -17,3 +17,7 @@
 ## 0.9.4
 
 * Fixed CORS issue
+
+## 1.0.0
+
+* Added integration tests for API key verification - will work only on DEBUG mode. However, in release mode, the report will actually be sent to our support centers, as intended in the first place.

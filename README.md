@@ -12,16 +12,23 @@
 ### Install via [pub.dev](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
 
 ```
-  butterfly_sdk_flutter_plugin: ^0.9.4
+  butterfly_sdk_flutter_plugin: ^1.0.0
 ```
 
 ## Usage
 
 To recognize your app in TheButterflySDK servers you'll need an application key. You can set it via code, as demonstrated here.
 
-#### Example in Dart
+### Example in Dart
 
 ```Dart
-    // Whenever you wish to open our screen, simply call:
-    ButterflySdk.openReporter(withKey: "your API key");
+// Whenever you wish to open our screen, simply call:
+ButterflySdk.openReporter(withKey: "your API key");
 ```
+
+## Integration test
+#### How?
+You can verify your application key by simply running the plugin in DEBUG mode. This will skip the part where the report is being sent to real support centers, our severs will ignore it and will only verify the API key. Eventually you'll get success / failure result.
+
+
+### Enjoy and good luck ❤️
