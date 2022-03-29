@@ -35,3 +35,4 @@ Runner/GeneratedPluginRegistrant.*
 butterfly_sdk_flutter_plugin/example/ios/Runner.xcworkspace/xcshareddata
 .packages
 .dart_tool
+*.lock
