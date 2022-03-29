@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
           child: Text('Running on: $_platformVersion\n'),
         ),
         floatingActionButton: FloatingActionButton(child: Text("🦋"), onPressed: () {
-          ButterflySdk.openReporter(withKey: "your API key");
+          ButterflySdk.openReporter(withKey: "test-bfc4a19d-a4d4-4c82-8d55-dcd43a246a72");
         },),
       ),
     );

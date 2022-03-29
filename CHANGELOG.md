@@ -17,3 +17,7 @@
 ## 0.9.4
 
 * Fixed CORS issue
+
+## 1.0.0
+
+* Added integration tests - will work only on DEBUG mode
