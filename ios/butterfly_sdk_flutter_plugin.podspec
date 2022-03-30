@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'butterfly_sdk_flutter_plugin'
-  s.version          = '0.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A plugin for The Butterfly SDK (iOS) that allows you use it in yout Flutter mobile app.'
   s.description      = <<-DESC
 A new flutter plugin project.
@@ -15,7 +15,7 @@ A new flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-#  pod 'TheButterflySDK', '1.0.0'
+  s.dependency 'TheButterflySDK', '1.0.1'
   s.platform = :ios, '9.0'
   s.resource_bundles = {
      'TheButterflySDK' => ['Assets/resources/*.lproj/*.strings']
