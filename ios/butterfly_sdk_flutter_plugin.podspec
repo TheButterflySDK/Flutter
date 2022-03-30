@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'butterfly_sdk_flutter_plugin'
-  s.version          = '1.0.2'
+  s.version          = '1.0.5'
   s.summary          = 'A plugin for The Butterfly SDK (iOS) that allows you use it in yout Flutter mobile app.'
   s.description      = <<-DESC
 A new flutter plugin project.
@@ -18,7 +18,7 @@ A new flutter plugin project.
   s.dependency 'TheButterflySDK', '1.0.1'
   s.platform = :ios, '9.0'
   s.resource_bundles = {
-     'TheButterflySDK' => ['Assets/resources/*.lproj/*.strings']
+     'TheButterflySDK' => ['Assets/Resources/*.lproj/*.strings']
   }
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
