@@ -17,8 +17,7 @@
 }
 
 +(void) openReporterWithKey:(NSString *)key {
-    [ButterflySDK openReporterWithKey:@"your-api-key"];
+    [ButterflySDK openReporterWithKey: key];
 }
-
 
 @end
