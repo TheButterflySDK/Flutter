@@ -22,13 +22,15 @@ To recognize your app in TheButterflySDK servers you'll need an application key.
 ### Example in Dart
 
 ```Dart
+import 'package:butterfly_sdk_flutter_plugin/butterfly_sdk_flutter_plugin.dart';
+
 // Whenever you wish to open our screen, simply call:
 ButterflySdk.openReporter(withKey: "your API key");
 ```
 
 ## Integration test
 #### How?
-You can easily verify your application key by simply running the plugin in **DEBUG mode**.
+You can easily verify your application key 🔑 by simply running the plugin in **DEBUG mode**.
 
 This will cause our servers to skip the part of sending reports to real live support centers, they will only verify the API key. Eventually you'll get success / failure result.
 
