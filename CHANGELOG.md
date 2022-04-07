@@ -21,3 +21,8 @@
 ## 1.0.5
 
 * Added integration tests for API key verification - will work only on DEBUG mode. However, in release mode, the report will actually be sent to our support centers, as intended in the first place.
+
+## 1.0.7
+
+* Fixed integration tests in Android. Added a quit button in iOS (because iPhones don't have a "back button").
+
