@@ -16,8 +16,4 @@
   [SwiftButterflySdkFlutterPlugin registerWithRegistrar:registrar];
 }
 
-+(void) openReporterWithKey:(NSString *)key {
-    [ButterflySDK openReporterWithKey: key];
-}
-
 @end

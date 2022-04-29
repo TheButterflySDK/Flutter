@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import TheButterflySDK
 
 public class SwiftButterflySdkFlutterPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -8,18 +9,59 @@ public class SwiftButterflySdkFlutterPlugin: NSObject, FlutterPlugin {
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
-  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    switch call.method {
+    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        switch call.method {
         case "getPlatformVersion":
-        result("iOS " + UIDevice.current.systemVersion)
+            result("iOS " + UIDevice.current.systemVersion)
         case "openReporter":
             if let args = call.arguments as? [String: String], let apiKey = args["apiKey"] {
-                ButterflySdkFlutterPlugin.openReporter(withKey: apiKey)
+                ButterflySDK.openReporter(withKey: apiKey)
+                result(true)
             } else {
-                result("Error: missing API key")
+                print("Butterfly error: missing API key")
+                result(false)
+            }
+        case "useColor":
+            if let args = call.arguments as? [String: String], let colorHexa = args["colorHexa"] {
+                ButterflySDK.useCustomColor(colorHexa)
+                result(true)
+            } else {
+                print("Butterfly error: missing argument 'colorHexa'")
+                result(false)
+            }
+        case "overrideLanguage":
+            if let args = call.arguments as? [String: String], let languageCode = args["languageCode"] {
+                
+                var selectedLanguage: BFInterfaceLanguage?
+                switch languageCode {
+                case "he":
+                    selectedLanguage = BFInterfaceLanguage.hebrew
+                case "en":
+                    selectedLanguage = BFInterfaceLanguage.english
+                default: break // ignore...
+                }
+
+                if let selectedLanguage = selectedLanguage {
+                    ButterflySDK.overrideLanguage(selectedLanguage)
+                    result(true)
+                } else {
+                    result(false)
+                }
+            } else {
+                print("Butterfly error: missing argument 'colorHexa'")
+                result(false)
+            }
+        case "overrideCountry":
+            if let args = call.arguments as? [String: String], let countryCode = args["countryCode"] {
+                ButterflySDK.overrideCountry(countryCode)
+                result(true)
+            } else {
+                print("Butterfly error: missing argument 'countryCode'")
+                result(false)
             }
         default:
-            result("Error: Unhandled method call")
+            print("Butterfly error: Unhandled method call")
+            result(false)
         }
-  }
+    }
 }

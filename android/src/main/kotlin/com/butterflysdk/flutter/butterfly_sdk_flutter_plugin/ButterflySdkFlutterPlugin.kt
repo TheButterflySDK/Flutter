@@ -18,75 +18,133 @@ import kotlin.collections.HashMap
 
 /** ButterflySdkFlutterPlugin */
 class ButterflySdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
-  /// The MethodChannel that will the communication between Flutter and native Android
-  ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-  /// when the Flutter Engine is detached from the Activity
-  private lateinit var channel : MethodChannel
-  private var activityWeakReference: WeakReference<Activity>? = null
+    private lateinit var channel: MethodChannel
+    private var activityWeakReference: WeakReference<Activity>? = null
 
-  override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "TheButterflySdkFlutterPlugin")
-    channel.setMethodCallHandler(this)
-  }
+    override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        channel =
+            MethodChannel(flutterPluginBinding.binaryMessenger, "TheButterflySdkFlutterPlugin")
+        channel.setMethodCallHandler(this)
+    }
 
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-
-    when (call.method) {
-      "getPlatformVersion" -> {
-        result.success("Android ${android.os.Build.VERSION.RELEASE}")
-      }
-      "openReporter" -> {
+    override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         var didSucceed = false
-        activityWeakReference?.get()?.let { flutterActivity ->
-          call.arguments?.let { args ->
-            when (args) {
-              is HashMap<*, *> -> {
-                val apiKeyString: String? = args["apiKey"]?.toString()
-                apiKeyString.let { apiKey ->
-                  ButterflySdk.openReporter(flutterActivity, apiKey)
-                  didSucceed = true
-                }
-              }
+
+        when (call.method) {
+            "getPlatformVersion" -> {
+                result.success("Android ${android.os.Build.VERSION.RELEASE}")
             }
-          } ?: run {
+
+            "openReporter" -> {
+                activityWeakReference?.get()?.let { flutterActivity ->
+                    call.arguments?.let { args ->
+                        when (args) {
+                            is HashMap<*, *> -> {
+                                val apiKeyString: String? = args["apiKey"]?.toString()
+                                apiKeyString.let { apiKey ->
+                                    ButterflySdk.openReporter(flutterActivity, apiKey)
+                                    didSucceed = true
+                                }
+                            }
+                        }
+                    } ?: run {
 //          print(TAG, "Missing call arguments in ${call.method}!")
 //          nativeChannelResult = Constants.Keys.FlutterMethodChannel.FAILURE_RESULT
-          }
+                    }
+                }
+            }
+
+            "useColor" -> {
+                call.arguments?.let { args ->
+                    when (args) {
+                        is HashMap<*, *> -> {
+                            val colorHexa: String? = args["colorHexa"]?.toString()
+                            colorHexa.let { colorHexaString ->
+                                ButterflySdk.setCustomColor(colorHexaString)
+                                didSucceed = true
+                            }
+                        }
+                    }
+                } ?: run {
+//          print(TAG, "Missing call arguments in ${call.method}!")
+//          nativeChannelResult = Constants.Keys.FlutterMethodChannel.FAILURE_RESULT
+                }
+            }
+
+            "overrideLanguage" -> {
+                call.arguments?.let { args ->
+                    when (args) {
+                        is HashMap<*, *> -> {
+                            val languageCode: String? = args["languageCode"]?.toString()
+                            languageCode.let { languageCodeString ->
+                                when (languageCodeString) {
+                                    "he" -> {
+                                        ButterflySdk.overrideLanguage(ButterflySdk.ButterflyInterfaceLanguage.Hebrew)
+                                        didSucceed = true
+                                    }
+                                    "en" -> {
+                                        ButterflySdk.overrideLanguage(ButterflySdk.ButterflyInterfaceLanguage.English)
+                                        didSucceed = true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } ?: run {
+//          print(TAG, "Missing call arguments in ${call.method}!")
+//          nativeChannelResult = Constants.Keys.FlutterMethodChannel.FAILURE_RESULT
+                }
+            }
+
+            "overrideCountry" -> {
+                call.arguments?.let { args ->
+                    when (args) {
+                        is HashMap<*, *> -> {
+                            val countryCode: String? = args["countryCode"]?.toString()
+                            countryCode.let { countryCodeString ->
+                                ButterflySdk.overrideCountry(countryCodeString)
+                                didSucceed = true
+                            }
+                        }
+                    }
+                } ?: run {
+//          print(TAG, "Missing call arguments in ${call.method}!")
+//          nativeChannelResult = Constants.Keys.FlutterMethodChannel.FAILURE_RESULT
+                }
+
+            }
+
+            else -> {
+                print("Missing handling for method channel named: " + call.method)
+            }
         }
 
         if (didSucceed) {
-          result.success(true)
+            result.success(true)
         } else {
-          result.error("0", "Something went wrong", null)
+            result.error("0", "Something went wrong", null)
         }
-      }
-      else -> {
-        print("Missing handling for method channel named: " + call.method)
-        result.notImplemented()
-      }
     }
-  }
 
-  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
-  }
+    override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+        channel.setMethodCallHandler(null)
+    }
 
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    activityWeakReference = WeakReference(binding.activity)
-  }
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        activityWeakReference = WeakReference(binding.activity)
+    }
 
-  override fun onDetachedFromActivityForConfigChanges() {
+    override fun onDetachedFromActivityForConfigChanges() {
 //    activityWeakReference?.clear()
 //    activityWeakReference = null
-  }
+    }
 
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    activityWeakReference = WeakReference(binding.activity)
-  }
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        activityWeakReference = WeakReference(binding.activity)
+    }
 
-  override fun onDetachedFromActivity() {
-    activityWeakReference?.clear()
-    activityWeakReference = null
-  }
+    override fun onDetachedFromActivity() {
+        activityWeakReference?.clear()
+        activityWeakReference = null
+    }
 }

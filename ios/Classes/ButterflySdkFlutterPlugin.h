@@ -2,6 +2,4 @@
 
 @interface ButterflySdkFlutterPlugin : NSObject<FlutterPlugin>
 
-+(void) openReporterWithKey:(NSString *)key;
-
 @end

@@ -1,9 +1,16 @@
 
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/services.dart';
 
+enum ButterflySdkSupportedLanguage {
+  English,
+  Hebrew
+}
+
 class ButterflySdk {
+
   static const MethodChannel _channel =
       const MethodChannel('TheButterflySdkFlutterPlugin');
 
@@ -13,10 +20,47 @@ class ButterflySdk {
   }
 
   static Future<bool?> openReporter({required String withKey}) async {
-    if (withKey == null) return false;
-    if (withKey.isEmpty) return false;
+    bool didSucceed = false;
 
-    await _channel.invokeMethod('openReporter', {"apiKey": withKey});
-    return true;
+    if (withKey == null) return didSucceed;
+    if (withKey.isEmpty) return didSucceed;
+
+    didSucceed = await _channel.invokeMethod('openReporter', {"apiKey": withKey});
+
+    return didSucceed;
+  }
+
+  // static Future<bool?> colorize({required Color color}) async {
+  //   bool? result = await useColor(colorHexa: color.toString());
+  //   return result;
+  // }
+
+  static Future<bool?> useColor({required String colorHexa}) async {
+    bool didSucceed = false;
+    if (colorHexa == null) return didSucceed;
+    if (colorHexa.isEmpty) return didSucceed;
+
+    didSucceed = await _channel.invokeMethod('useColor', {"colorHexa": colorHexa});
+
+    return didSucceed;
+  }
+
+  static Future<bool?> overrideLanguage({required ButterflySdkSupportedLanguage supportedLanguage}) async {
+    bool didSucceed = false;
+    if (supportedLanguage == null) return didSucceed;
+
+    didSucceed = await _channel.invokeMethod('overrideLanguage', {"languageCode": supportedLanguage == ButterflySdkSupportedLanguage.Hebrew ? "he" : "en"});
+
+    return didSucceed;
+  }
+
+  /// Sets  a two letters country code to override the country regardless of the user's location.
+  static Future<bool?> overrideCountry({required String countryCode}) async {
+    bool didSucceed = false;
+    if (countryCode.length != 2) return didSucceed;
+
+    didSucceed = await _channel.invokeMethod('overrideCountry', {"countryCode": countryCode});
+
+    return didSucceed;
   }
 }
