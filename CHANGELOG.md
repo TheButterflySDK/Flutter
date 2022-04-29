@@ -26,3 +26,6 @@
 
 * Fixed integration tests in Android. Added a quit button in iOS (because iPhones don't have a "back button").
 
+## 1.1.1
+
+* Allowing to: change screens' main color, override language regardless of device's language, override country regardless of user's location.
