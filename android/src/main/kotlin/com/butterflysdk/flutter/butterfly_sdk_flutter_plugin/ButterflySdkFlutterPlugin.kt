@@ -60,7 +60,7 @@ class ButterflySdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
                         is HashMap<*, *> -> {
                             val colorHexa: String? = args["colorHexa"]?.toString()
                             colorHexa.let { colorHexaString ->
-                                ButterflySdk.setCustomColor(colorHexaString)
+                                ButterflySdk.useCustomColor(colorHexaString)
                                 didSucceed = true
                             }
                         }
