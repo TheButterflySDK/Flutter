@@ -29,3 +29,8 @@
 ## 1.1.1
 
 * Allowing to: change screens' main color, override language regardless of device's language, override country regardless of user's location.
+
+## 1.1.2
+
+* The reporter will exit automatically if the app is no longer in foreground
+
