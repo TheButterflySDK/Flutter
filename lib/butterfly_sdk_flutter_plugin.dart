@@ -1,13 +1,6 @@
-
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter/services.dart';
-
-enum ButterflySdkSupportedLanguage {
-  English,
-  Hebrew
-}
 
 class ButterflySdk {
 
@@ -45,11 +38,12 @@ class ButterflySdk {
     return didSucceed;
   }
 
-  static Future<bool?> overrideLanguage({required ButterflySdkSupportedLanguage supportedLanguage}) async {
+  static Future<bool?> overrideLanguage({required String supportedLanguage}) async {
     bool didSucceed = false;
     if (supportedLanguage == null) return didSucceed;
+    if (supportedLanguage.length != 2) return didSucceed;
 
-    didSucceed = await _channel.invokeMethod('overrideLanguage', {"languageCode": supportedLanguage == ButterflySdkSupportedLanguage.Hebrew ? "he" : "en"});
+    didSucceed = await _channel.invokeMethod('overrideLanguage', {"languageCode": supportedLanguage});
 
     return didSucceed;
   }

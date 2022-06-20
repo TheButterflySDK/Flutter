@@ -1,6 +1,6 @@
 name: butterfly_sdk_flutter_plugin_example
 description: Demonstrates how to use the butterfly_sdk_flutter_plugin plugin.
-version: 1.1.2+1
+version: 1.2.1+1
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -41,8 +41,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - lib/res/img/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -34,3 +34,6 @@
 
 * The reporter will exit automatically if the app is no longer in foreground
 
+## 1.2.1
+
+* Added Arabic interface- Now our reporter is now much easier to get translated.
