@@ -30,23 +30,9 @@ public class SwiftButterflySdkFlutterPlugin: NSObject, FlutterPlugin {
                 result(false)
             }
         case "overrideLanguage":
-            if let args = call.arguments as? [String: String], let languageCode = args["languageCode"] {
-                
-                var selectedLanguage: BFInterfaceLanguage?
-                switch languageCode {
-                case "he":
-                    selectedLanguage = BFInterfaceLanguage.hebrew
-                case "en":
-                    selectedLanguage = BFInterfaceLanguage.english
-                default: break // ignore...
-                }
-
-                if let selectedLanguage = selectedLanguage {
-                    ButterflySDK.overrideLanguage(selectedLanguage)
-                    result(true)
-                } else {
-                    result(false)
-                }
+            if let args = call.arguments as? [String: String], let languageCode = args["languageCode"] as? String {
+                ButterflySDK.overrideLanguage(languageCode)
+                result(true)
             } else {
                 print("Butterfly error: missing argument 'colorHexa'")
                 result(false)

@@ -46,6 +46,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    String imageFileName = "bf-logo.png";
+    String imageRelativePath = "lib/res/img/$imageFileName";
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -54,7 +57,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Text('Running on: $_platformVersion\n'),
         ),
-        floatingActionButton: FloatingActionButton(child: Text("🦋"), onPressed: () {
+        floatingActionButton: FloatingActionButton(child: Image(image: AssetImage(imageRelativePath),), onPressed: () {
           ButterflySdk.openReporter(withKey: "your-api-key");
         },),
       ),

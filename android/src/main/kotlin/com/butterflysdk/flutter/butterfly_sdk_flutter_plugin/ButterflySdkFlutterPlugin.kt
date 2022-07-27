@@ -77,16 +77,8 @@ class ButterflySdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
                         is HashMap<*, *> -> {
                             val languageCode: String? = args["languageCode"]?.toString()
                             languageCode.let { languageCodeString ->
-                                when (languageCodeString) {
-                                    "he" -> {
-                                        ButterflySdk.overrideLanguage(ButterflySdk.ButterflyInterfaceLanguage.Hebrew)
-                                        didSucceed = true
-                                    }
-                                    "en" -> {
-                                        ButterflySdk.overrideLanguage(ButterflySdk.ButterflyInterfaceLanguage.English)
-                                        didSucceed = true
-                                    }
-                                }
+                                ButterflySdk.overrideLanguage(languageCodeString)
+                                didSucceed = true
                             }
                         }
                     }
