@@ -51,6 +51,7 @@ class ButterflySdk {
   /// Sets  a two letters country code to override the country regardless of the user's location.
   static Future<bool?> overrideCountry({required String countryCode}) async {
     bool didSucceed = false;
+    if (countryCode == null) return didSucceed;
     if (countryCode.length != 2) return didSucceed;
 
     didSucceed = await _channel.invokeMethod('overrideCountry', {"countryCode": countryCode});
