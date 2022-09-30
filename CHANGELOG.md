@@ -37,3 +37,7 @@
 ## 1.2.2
 
 * Added Arabic interface- Now our reporter is now much easier to get translated.
+
+## 1.3.1
+
+* Flexible language support
