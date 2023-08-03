@@ -3,6 +3,7 @@
 [![Platform-Flutter](https://img.shields.io/badge/Platform-Flutter-blue.svg)](https://github.com/TheButterflySDK/Flutter)
 [![Platform-iOS](https://img.shields.io/badge/Platform-iOS-lightgray.svg)](https://github.com/TheButterflySDK/iOS)
 [![Platform-Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/TheButterflySDK/Android)
+[![Platform-React-Native](https://img.shields.io/badge/Platform-ReactNative-blue.svg)](https://github.com/TheButterflySDK/React-Native)
 
 [The Butterfly SDK](https://github.com/TheButterflyButton/About/blob/main/README.md) helps your app to take an active part in the fight against domestic violence.
 
