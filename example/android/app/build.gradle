@@ -34,7 +34,7 @@ android {
 
     defaultConfig {
         applicationId "com.butterflysdk.flutter.butterfly_sdk_flutter_plugin_example"
-        minSdkVersion 19
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
