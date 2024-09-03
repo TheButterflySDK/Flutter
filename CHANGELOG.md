@@ -41,3 +41,7 @@
 ## 1.3.1
 
 * Flexible language support
+
+## 2.0.0
+
+* [Android][accessiblity] Fixed zoomed text

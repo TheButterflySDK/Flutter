@@ -28,7 +28,7 @@ class ButterflySdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-        var didSucceed = false
+        var didSucceed: Boolean? = null
 
         when (call.method) {
             "getPlatformVersion" -> {
@@ -48,7 +48,6 @@ class ButterflySdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
                             }
                         }
                     } ?: run {
-//          print(TAG, "Missing call arguments in ${call.method}!")
 //          nativeChannelResult = Constants.Keys.FlutterMethodChannel.FAILURE_RESULT
                     }
                 }
@@ -111,10 +110,12 @@ class ButterflySdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
             }
         }
 
-        if (didSucceed) {
-            result.success(true)
-        } else {
-            result.error("0", "Something went wrong", null)
+        didSucceed?.let {
+            if (it) {
+                result.success(true)
+            } else {
+                result.error("0", "Something went wrong", null)
+            }
         }
     }
 
