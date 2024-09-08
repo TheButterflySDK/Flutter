@@ -13,7 +13,7 @@
 ### Install via [pub.dev](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
 
 ```
-  butterfly_sdk_flutter_plugin: ^2.0.0
+  butterfly_sdk_flutter_plugin: ^2.0.1
 ```
 
 ## Usage

@@ -45,3 +45,8 @@
 ## 2.0.0
 
 * [Android][accessiblity] Fixed zoomed text
+* [Android] No longer disappearing when focused is out
+
+## 2.0.1
+
+* [iOS] No longer disappearing when focused is out

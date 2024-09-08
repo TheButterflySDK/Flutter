@@ -14,8 +14,6 @@ class ButterflySdk {
 
   static Future<bool?> openReporter({required String withKey}) async {
     bool didSucceed = false;
-
-    if (withKey == null) return didSucceed;
     if (withKey.isEmpty) return didSucceed;
 
     didSucceed = await _channel.invokeMethod('openReporter', {"apiKey": withKey});
@@ -30,7 +28,6 @@ class ButterflySdk {
 
   static Future<bool?> useColor({required String colorHexa}) async {
     bool didSucceed = false;
-    if (colorHexa == null) return didSucceed;
     if (colorHexa.isEmpty) return didSucceed;
 
     didSucceed = await _channel.invokeMethod('useColor', {"colorHexa": colorHexa});
@@ -40,7 +37,6 @@ class ButterflySdk {
 
   static Future<bool?> overrideLanguage({required String supportedLanguage}) async {
     bool didSucceed = false;
-    if (supportedLanguage == null) return didSucceed;
     if (supportedLanguage.length != 2) return didSucceed;
 
     didSucceed = await _channel.invokeMethod('overrideLanguage', {"languageCode": supportedLanguage});
@@ -51,7 +47,6 @@ class ButterflySdk {
   /// Sets  a two letters country code to override the country regardless of the user's location.
   static Future<bool?> overrideCountry({required String countryCode}) async {
     bool didSucceed = false;
-    if (countryCode == null) return didSucceed;
     if (countryCode.length != 2) return didSucceed;
 
     didSucceed = await _channel.invokeMethod('overrideCountry', {"countryCode": countryCode});
