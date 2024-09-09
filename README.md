@@ -11,7 +11,7 @@
 ### 🔌 & ▶️
 
 ### Install via [pub.dev](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
-![pub-dev-logo](https://github.com/user-attachments/assets/d1a6ef01-6ed2-4437-bf2a-362fdd68a110)<?xml version="1.0" encoding="UTF-8"?>
+[![pub-dev-logo](https://github.com/user-attachments/assets/d1a6ef01-6ed2-4437-bf2a-362fdd68a110)<?xml version="1.0" encoding="UTF-8"?>
 <svg width="328px" height="70px" viewBox="0 0 328 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
     <g id="pub.dev" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -35,7 +35,7 @@
             </g>
         </g>
     </g>
-</svg>
+</svg>](https://pub.dev/packages/butterfly_sdk_flutter_plugin)
 
 ```
   butterfly_sdk_flutter_plugin: ^2.0.0
