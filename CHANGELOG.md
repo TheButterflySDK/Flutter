@@ -51,6 +51,6 @@
 
 * [iOS] No longer disappearing when focused is out
 
-## 2.0.2
+## 2.0.3
 
 * [Android] New - native close button (in addition to Android device's "back button")
