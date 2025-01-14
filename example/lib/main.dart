@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
         ),
         floatingActionButton: FloatingActionButton(child: Image(image: AssetImage(imageRelativePath),), onPressed: () {
           ButterflySdk.instance
-            ..overrideLanguage(supportedLanguage: "zh")
+            ..overrideLanguage(supportedLanguage: "de")
             ..open(withKey: "test-bfc4a19d-a4d4-4c82-8d55-dcd43a246a72");
         },),
       ),
