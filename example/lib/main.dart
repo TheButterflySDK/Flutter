@@ -58,7 +58,9 @@ class _MyAppState extends State<MyApp> {
           child: Text('Running on: $_platformVersion\n'),
         ),
         floatingActionButton: FloatingActionButton(child: Image(image: AssetImage(imageRelativePath),), onPressed: () {
-          ButterflySdk.openReporter(withKey: "your-api-key");
+          ButterflySdk.instance
+            ..open(withKey: "your-api-key")
+            ..overrideLanguage(supportedLanguage: "hi");
         },),
       ),
     );
