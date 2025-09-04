@@ -70,13 +70,28 @@ class ButterflySdk {
   /**
    * In case you app handles deep links, use this API for forwarding the link to The Butterfly Button SDK as well.
    */
-  Future<bool?> handleDeepLink({required String linkString, required String apiKey}) async {
+  Future<bool?> handleDeepLinkUri({required Uri uri, required String apiKey}) async {
     bool didSucceed = false;
-    if (linkString.length < 2 || linkString.length > 1000) return didSucceed;
     if (apiKey.isEmpty) return didSucceed;
+    String urlString = uri.path;
+    if (urlString.length < 2 || urlString.length > 1000) return didSucceed;
 
-    didSucceed = await _channel.invokeMethod('handleDeepLink', {"linkString": linkString, "apiKey": apiKey});
+    didSucceed = await _channel.invokeMethod('handleDeepLink', {"linkString": urlString, "apiKey": apiKey});
 
     return didSucceed;
+  }
+
+  /**
+   * In case you app handles deep links, use this API for forwarding the link to The Butterfly Button SDK as well.
+   */
+  Future<bool?> handleDeepLinkString({required String linkString, required String apiKey}) async {
+    bool? didSucceed;
+    try {
+      didSucceed = await handleDeepLinkUri(uri: Uri.parse(linkString), apiKey: apiKey);
+    } catch (e) {
+      //
+    }
+
+    return didSucceed ?? false;
   }
 }
