@@ -66,4 +66,17 @@ class ButterflySdk {
 
     return didSucceed;
   }
+
+  /**
+   * In case you app handles deep links, use this API for forwarding the link to The Butterfly Button SDK as well.
+   */
+  Future<bool?> handleDeepLink({required String linkString, required String apiKey}) async {
+    bool didSucceed = false;
+    if (linkString.length < 2 || linkString.length > 1000) return didSucceed;
+    if (apiKey.isEmpty) return didSucceed;
+
+    didSucceed = await _channel.invokeMethod('handleDeepLink', {"linkString": linkString, "apiKey": apiKey});
+
+    return didSucceed;
+  }
 }
