@@ -73,7 +73,7 @@ class ButterflySdk {
   Future<bool?> handleDeepLinkUri({required Uri uri, required String apiKey}) async {
     bool didSucceed = false;
     if (apiKey.isEmpty) return didSucceed;
-    String urlString = uri.path;
+    String urlString = uri.toString();
     if (urlString.length < 2 || urlString.length > 1000) return didSucceed;
 
     didSucceed = await _channel.invokeMethod('handleDeepLink', {"linkString": urlString, "apiKey": apiKey});
