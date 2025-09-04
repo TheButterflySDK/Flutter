@@ -30,7 +30,7 @@ public class SwiftButterflySdkFlutterPlugin: NSObject, FlutterPlugin {
                 result(false)
             }
         case "overrideLanguage":
-            if let args = call.arguments as? [String: String], let languageCode = args["languageCode"] as? String {
+            if let args = call.arguments as? [String: String], let languageCode = args["languageCode"] {
                 ButterflySDK.overrideLanguage(languageCode)
                 result(true)
             } else {
