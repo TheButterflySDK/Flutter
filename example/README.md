@@ -11,29 +11,29 @@ The Butterfly SDK help your app to take an active part in the fight against dome
 ### Install via pub.dev
 
 ```
-  butterfly_sdk_flutter_plugin: ^2.1.0
+  butterfly_sdk_flutter_plugin: ^2.1.1
 ```
 
 ## Usage
 
 To recognize your app in TheButterflySDK servers you'll need an application key. You can set it via code, as demonstrated here.
 
-#### Example in Dart
+### Examples
 
-```Dart
+#### Forward deep link to the SDK after your handling
+
+#### Open the Butterfly screen
+
+```dart
     // Whenever you wish to open our screen, simply call:
-    ButterflySdk.openReporter(withKey: "your API key");
+ButterflySdk.instance.open(withKey: "your API key");
 ```
 
-## Getting Started with Flutter
+```dart
+// Whenever your app handle deep link, forward it to the Butterfly Button plugin
+ButterflySdk.instance.handleDeepLinkString(linkString: deepLinkUrlString, apiKey: "your API key");
+// OR:
+ButterflySdk.instance.handleDeepLinkUri(uri: deepLinkUri, apiKey: "your API key");
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Enjoy and good luck!
