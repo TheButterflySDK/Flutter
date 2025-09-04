@@ -44,7 +44,7 @@
 
 ## 2.0.0
 
-* [Android][accessiblity] Fixed zoomed text
+* [Android][accessibility] Fixed zoomed text
 * [Android] No longer disappearing when focused is out
 
 ## 2.0.1
@@ -54,3 +54,8 @@
 ## 2.0.3
 
 * [Android] New - native close button (in addition to Android device's "back button")
+
+## 2.1.0
+
+* [iOS+Android] Deep links handling
+* [Android] Small fixes and improvements in

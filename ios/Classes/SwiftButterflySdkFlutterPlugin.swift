@@ -15,7 +15,7 @@ public class SwiftButterflySdkFlutterPlugin: NSObject, FlutterPlugin {
             result("iOS " + UIDevice.current.systemVersion)
         case "openReporter":
             if let args = call.arguments as? [String: String], let apiKey = args["apiKey"] {
-                ButterflySDK.openReporter(withKey: apiKey)
+                ButterflySDK.open(withKey: apiKey)
                 result(true)
             } else {
                 print("Butterfly error: missing API key")
@@ -30,7 +30,7 @@ public class SwiftButterflySdkFlutterPlugin: NSObject, FlutterPlugin {
                 result(false)
             }
         case "overrideLanguage":
-            if let args = call.arguments as? [String: String], let languageCode = args["languageCode"] as? String {
+            if let args = call.arguments as? [String: String], let languageCode = args["languageCode"] {
                 ButterflySDK.overrideLanguage(languageCode)
                 result(true)
             } else {
@@ -43,6 +43,19 @@ public class SwiftButterflySdkFlutterPlugin: NSObject, FlutterPlugin {
                 result(true)
             } else {
                 print("Butterfly error: missing argument 'countryCode'")
+                result(false)
+            }
+        case "handleDeepLink":
+            if let args = call.arguments as? [String: String],
+               let linkString = args["linkString"],
+               let apiKey = args["apiKey"] {
+                if let url = URL(string: linkString) {
+                    ButterflySDK.handleIncomingURL(url, apiKey: apiKey)
+                }
+
+                result(true)
+            } else {
+                print("Butterfly error: missing argument 'linkString'")
                 result(false)
             }
         default:

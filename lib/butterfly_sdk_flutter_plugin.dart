@@ -3,6 +3,20 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 class ButterflySdk {
+  // Singleton
+  static ButterflySdk? _instance;
+  static ButterflySdk get shared => _instance ??= ButterflySdk._();
+  static ButterflySdk get instance => shared;
+
+  ButterflySdk._() { }
+
+  factory ButterflySdk.create() {
+    return shared;
+  }
+
+  factory ButterflySdk() {
+    return shared;
+  }
 
   static const MethodChannel _channel =
       const MethodChannel('TheButterflySdkFlutterPlugin');
@@ -13,6 +27,10 @@ class ButterflySdk {
   }
 
   static Future<bool?> openReporter({required String withKey}) async {
+    return ButterflySdk.shared.open(withKey: withKey);
+  }
+
+  Future<bool?> open({required String withKey}) async {
     bool didSucceed = false;
     if (withKey.isEmpty) return didSucceed;
 
@@ -21,12 +39,7 @@ class ButterflySdk {
     return didSucceed;
   }
 
-  // static Future<bool?> colorize({required Color color}) async {
-  //   bool? result = await useColor(colorHexa: color.toString());
-  //   return result;
-  // }
-
-  static Future<bool?> useColor({required String colorHexa}) async {
+  Future<bool?> useColor({required String colorHexa}) async {
     bool didSucceed = false;
     if (colorHexa.isEmpty) return didSucceed;
 
@@ -35,7 +48,7 @@ class ButterflySdk {
     return didSucceed;
   }
 
-  static Future<bool?> overrideLanguage({required String supportedLanguage}) async {
+  Future<bool?> overrideLanguage({required String supportedLanguage}) async {
     bool didSucceed = false;
     if (supportedLanguage.length != 2) return didSucceed;
 
@@ -45,12 +58,40 @@ class ButterflySdk {
   }
 
   /// Sets  a two letters country code to override the country regardless of the user's location.
-  static Future<bool?> overrideCountry({required String countryCode}) async {
+  Future<bool?> overrideCountry({required String countryCode}) async {
     bool didSucceed = false;
     if (countryCode.length != 2) return didSucceed;
 
     didSucceed = await _channel.invokeMethod('overrideCountry', {"countryCode": countryCode});
 
     return didSucceed;
+  }
+
+  /**
+   * In case you app handles deep links, use this API for forwarding the link to The Butterfly Button SDK as well.
+   */
+  Future<bool?> handleDeepLinkUri({required Uri uri, required String apiKey}) async {
+    bool didSucceed = false;
+    if (apiKey.isEmpty) return didSucceed;
+    String urlString = uri.toString();
+    if (urlString.length < 2 || urlString.length > 1000) return didSucceed;
+
+    didSucceed = await _channel.invokeMethod('handleDeepLink', {"linkString": urlString, "apiKey": apiKey});
+
+    return didSucceed;
+  }
+
+  /**
+   * In case you app handles deep links, use this API for forwarding the link to The Butterfly Button SDK as well.
+   */
+  Future<bool?> handleDeepLinkString({required String linkString, required String apiKey}) async {
+    bool? didSucceed;
+    try {
+      didSucceed = await handleDeepLinkUri(uri: Uri.parse(linkString), apiKey: apiKey);
+    } catch (e) {
+      //
+    }
+
+    return didSucceed ?? false;
   }
 }

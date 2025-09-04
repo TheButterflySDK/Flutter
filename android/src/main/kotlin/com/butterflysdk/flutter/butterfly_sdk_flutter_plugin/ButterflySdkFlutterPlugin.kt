@@ -102,6 +102,19 @@ class ButterflySdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware
 //          print(TAG, "Missing call arguments in ${call.method}!")
 //          nativeChannelResult = Constants.Keys.FlutterMethodChannel.FAILURE_RESULT
                 }
+            }
+
+            "handleDeepLink" -> {
+                val arguments = call.arguments ?: return
+                val flutterActivity = activityWeakReference?.get() ?: return
+                when (arguments) {
+                    is HashMap<*, *> -> {
+                        val linkString: String = arguments["linkString"]?.toString() ?: return
+                        val apiKey: String = arguments["apiKey"]?.toString() ?: return
+                        ButterflySdk.handleDeepLink(flutterActivity, linkString, apiKey)
+                        didSucceed = true
+                    }
+                }
 
             }
 
