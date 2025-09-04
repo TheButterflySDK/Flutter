@@ -60,6 +60,6 @@
 * [iOS+Android] Deep links handling
 * [Android] Small fixes and improvements in
 
-## 2.1.1
+## 2.1.2
 
 * Update docs
