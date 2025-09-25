@@ -76,19 +76,24 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   String inputText = _deepLinkInputController.text;
                   Uri.parse(inputText);
-                  ButterflySdk.instance.handleDeepLinkString(linkString: inputText, apiKey: API_KEY);
+                  ButterflySdk.instance.handleDeepLinkString(
+                      linkString: inputText, apiKey: API_KEY);
                 },
                 child: Text('Handle Deep Link'),
               ),
-
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(child: Image(image: AssetImage(imageRelativePath),), onPressed: () {
-          ButterflySdk.instance
-            // ..overrideLanguage(supportedLanguage: "de")
-            ..open(withKey: API_KEY);
-        },),
+        floatingActionButton: FloatingActionButton(
+          child: Image(
+            image: AssetImage(imageRelativePath),
+          ),
+          onPressed: () {
+            ButterflySdk.instance
+              // ..overrideLanguage(supportedLanguage: "de")
+              ..open(withKey: API_KEY);
+          },
+        ),
       ),
     );
   }
