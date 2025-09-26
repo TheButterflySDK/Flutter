@@ -1,6 +1,6 @@
 name: butterfly_sdk_flutter_plugin_example
 description: Demonstrates how to use the butterfly_sdk_flutter_plugin plugin.
-version: 2.1.2+9
+version: 2.1.3+10
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

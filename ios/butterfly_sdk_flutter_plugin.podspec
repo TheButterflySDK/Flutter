@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'butterfly_sdk_flutter_plugin'
-  s.version          = '2.1.2'
+  s.version          = '2.1.3'
   s.summary          = 'A plugin for The Butterfly SDK (iOS) that allows you use it in your Flutter mobile app.'
   s.description      = <<-DESC
 A new flutter plugin project.

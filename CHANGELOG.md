@@ -63,3 +63,7 @@
 ## 2.1.2
 
 * Update docs
+
+## 2.1.3
+
+* iOS small bug fix
